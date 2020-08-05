@@ -1,0 +1,143 @@
+string inp_file="inp_file.txt"
+,graph_file="graph_file.txt"
+,command_file="command_file.txt"
+,output_file="output_file.txt";
+
+vector<pair<int,int>>graph_edge_list;
+void add_edge(int u,int v){
+	graph_edge_list.push_back({u,v});
+}
+void build_graph(){
+   int mx=-1;
+   for(auto x:graph_edge_list){
+      mx=max(mx,max(x.first,x.second));
+   }
+freopen((dir+graph_file).c_str(),"w+",stdout);
+cout<<mx+1<<" "<<graph_edge_list.size()<<endl;
+for(auto x:graph_edge_list)cout<<x.first<<" "<<x.second<<endl;
+freopen((dir+output_file).c_str(),"a+",stdout);
+
+}
+string trim(string s){
+   while(s.size() && s.back()==' ')s.pop_back();
+   string rt;
+   bool sw=false;
+   for (int i = 0; i < s.size(); ++i)
+   {
+   	  if(s[i]!=' ' || sw){
+   	  	sw=true;
+   	  	rt.push_back(s[i]);
+   	  }
+   }
+   if(rt.empty())rt=" ";
+   return rt;
+
+}
+unordered_map<string,string>updateMap[1000];
+void update_node(int curNode,int prevNode,string tag,string msg,int line){
+    if(tag=="multiple"){
+      string tg;
+      for (int i = 0; i < msg.size(); ++i)
+      {
+      	if(msg[i]==','){
+      		string ms;
+      		i++;
+      		while(i<msg.size() && msg[i]!=','){
+      			ms.push_back(msg[i++]);
+      		}
+      		ms=trim(ms);
+      		tg=trim(tg);
+      		updateMap[curNode][tg]=ms;
+      		tg="";
+      		i++;
+      	}
+      	tg.push_back(msg[i]);
+      }
+    }
+	else updateMap[curNode][tag]=msg;
+
+	freopen((dir+command_file).c_str(),"a+",stdout);
+	cout<<"#UPDATE#\n";
+	cout<<line<<"\n";
+	cout<<curNode<<"\n";
+	cout<<prevNode<<"\n";
+	cout<<updateMap[curNode].size()<<"\n";
+	for(auto x:updateMap[curNode]){
+	   cout<<x.first <<": "<<x.second<<"\n";
+	}
+    freopen((dir+output_file).c_str(),"a+",stdout);
+}
+void update_node(int curNode,int prevNode,string tag,long long msg,int line){
+	update_node(curNode,prevNode,tag,to_string(msg),line);
+}
+
+void update_node(int curNode,int prevNode,string tag, int msg,int l){
+	update_node(curNode,prevNode,tag,to_string(msg),l);
+}
+void update_node(int curNode,int prevNode,string tag,double msg,int l){
+	update_node(curNode,prevNode,tag,to_string(msg),l);
+}
+
+void update_node(int curNode,string tag,double msg,int l){
+	update_node(curNode,-1,tag,to_string(msg),l);
+}
+void update_node(int curNode,string tag,long long msg,int line){
+	update_node(curNode,-1,tag,to_string(msg),line);
+}
+void update_node(int curNode,string tag,int msg,int l){
+	update_node(curNode,-1,tag,to_string(msg),l);
+}
+void update_node(int curNode,string tag,string msg,int l){
+	update_node(curNode,-1,tag,msg,l);
+}
+
+void logger(string s,int l){
+	freopen((dir+command_file).c_str(),"a+",stdout);
+	cout<<"#LOGGER#\n";
+	cout<<l<<"\n";
+	cout<<s<<endl;
+	cout<<"#LOGGER#\n";
+    freopen((dir+output_file).c_str(),"a+",stdout);
+}
+void logger(long long s,int l){
+	logger(to_string(s),l);
+}
+
+
+void logger(int s,int l){
+	logger(to_string(s),l);
+}
+
+void logger(double s,int l){
+	logger(to_string(s),l);
+}
+void alert(string s,int l){
+	freopen((dir+command_file).c_str(),"a+",stdout);
+	cout<<"#ALERT#\n";
+	cout<<l<<"\n";
+	cout<<s<<endl;
+	cout<<"#ALERT#\n";
+    freopen((dir+output_file).c_str(),"a+",stdout);
+}
+void alert(long long s,int l){
+	alert(to_string(s),l);
+}
+
+
+void alert(int s,int l){
+	alert(to_string(s),l);
+}
+
+void alert(double s,int l){
+	alert(to_string(s),l);
+}
+void show_edge(int from,int to,string color,int l){
+	freopen((dir+command_file).c_str(),"a+",stdout);
+	cout<<"#HIGHLIGHT#\n";
+	cout<<l<<"\n";
+	cout<<from<<"\n"<<to<<"\n"<<color<<"\n";
+    freopen((dir+output_file).c_str(),"a+",stdout);
+}
+void show_edge(int from,int to,int l){
+	show_edge(from,to,"green",l);
+}

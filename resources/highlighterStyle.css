@@ -1,0 +1,49 @@
+
+.mycom {
+    -fx-fill: #FF0ABC;
+   -fx-font-weight: bold;
+   
+}
+.keyword {
+    -fx-fill: red;
+    -fx-font-weight: bold;
+}
+.prec {
+    -fx-fill: #ECA218;
+    -fx-font-weight: bold;
+}
+.semicolon {
+    -fx-font-weight: bold;
+}
+.paren {
+    -fx-fill: #a822bf;
+    -fx-font-weight: bold;
+}
+.bracket {
+    -fx-fill: darkgreen;
+    -fx-font-weight: bold;
+}
+.brace {
+    -fx-fill: teal;
+    -fx-font-weight: bold;
+}
+.string {
+    -fx-fill: #4443FF;
+}
+
+.comment {
+	-fx-fill: cadetblue;
+}
+
+.paragraph-box:has-caret {
+    -fx-background-color: #e1e4eb;
+}
+.gen{
+   -fx-fill:white;
+}
+{
+ -fx-font-size:  18px;
+
+ -fx-font-family: "Lucida Console";
+ -fx-background-color: transparent;
+}
