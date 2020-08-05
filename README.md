@@ -38,7 +38,7 @@ int main(){
 #### Result
 ![Result Image](https://github.com/faridul-reja/GraphVisualizer/blob/master/download/example1.PNG)
 
-#### Command functions
+## Command functions
 ##### These functions will be executed after the graph is built. You can use these functions anywhere in your code . The line from where these functions are called will be highlighted when you start the visualizer.
 ```c++
  void show_edge(int from,int to);
