@@ -3,7 +3,8 @@
 Sometimes it becomes very hard to debug a graph related problem in Competitive programming. And beginners find it difficult to understand the common graph related algorithms. This tool is an attempt to solve (maybe?) them both.
 
 Just use graph visualizer's functions with your c++ code and run.    
-
+Checkout this intro 
+[video](https://youtu.be/OqvYyGtj0Ko)
 ## C++ Functions 
 ##### You can just use these functions in the debugger with your cpp code  
 #### Building the graph
