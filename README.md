@@ -73,4 +73,4 @@ Writes the `msg` in a small window . The written value will persists throughout 
 #### Download and extract the zip file . start Graph Visualizer. 
 
 #### Java and MinGW must be installed to run the application
-[download](https://github.com/faridul-reja/GraphVisualizer/raw/master/download/GraphVisualizer.zip)
+[download](https://drive.google.com/file/d/1UT6ESnWe6aUm29BpMjJsGnyFq99FC6cp/view?usp=sharing)
